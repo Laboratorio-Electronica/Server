@@ -2,8 +2,34 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
-const privateKey = 'KrlozMedina'
 const users = require('../data/users.json')
+
+const privateKey = 'KrlozMedina'
+const port = process.env.PORT || 1234;
+
+// Mongo DB
+    const mongoose = require('mongoose');
+
+    const userMongo = 'KrlozMedina';
+    const passwordMongo = 'PNj99mXR1ryVDBgz';
+    const dbname = 'laboratorio';
+    const uri = `mongodb+srv://${userMongo}:${passwordMongo}@data.6ep5zsp.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+
+    mongoose.connect(uri)
+        .then(() => console.log('Base de datos conectada'))
+        .catch(e => console.error(e))
+
+    const user = require('../models/user')
+
+    // const tecnico = new user({ username: 'Tecnico2', password: "tecnico2022", name: "Tecnico nuevo" });
+    // tecnico.save().then(() => console.log('yo reparo'));
+
+    try {
+        const arrayUsers = user.find()
+            .then(res => console.log(res))
+    } catch (error) {
+        console.log(error)
+    }
 
 var name;
 
@@ -49,6 +75,6 @@ app.post('/test', (req, res) => {
     })
 })
 
-app.listen(1234, () => {
-    console.log("Server ready on 1234")
+app.listen(port, () => {
+    console.log(`Server ready on ${port}`)
 })
