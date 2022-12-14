@@ -10,5 +10,11 @@
         "username": "KrlozMedina",
         "password": "abc1234yz",
         "name": "Carlos Medina"
+    },
+    {
+        "id": 3,
+        "username": "visitor",
+        "password": "1234",
+        "name": "Visitor"
     }
 ]
