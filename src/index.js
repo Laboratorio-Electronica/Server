@@ -14,6 +14,7 @@ var name;
 async function findUser(username, password, cb) {
     var status;
     const users = await cb;
+    // console.log(users)
     for (let i = 0; i < users.length; i++) {
         if (users[i].username === username && users[i].password === password) {
             status = true;

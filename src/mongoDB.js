@@ -15,14 +15,17 @@ async function getUsers() {
         .then(() => console.log('Base de datos conectada'))
         .catch(e => console.error('error', e))
 
-        try {
-            const arrayUsers = await user.find()
-                .then(res => {
-                    users = res
-                })
-        } catch (error) {
-            console.log(error)
-        }
+    try {
+        const arrayUsers = await user.find()
+            .then(res => {
+                users = res
+            })
+    } catch (error) {
+        console.log('---------------------------------')
+        console.log(error)
+        console.log('---------------------------------')
+    }
+
     return users
 }
 
