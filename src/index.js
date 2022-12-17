@@ -24,6 +24,7 @@ async function findUser(username, password, cb) {
 }
 
 async function generateToken (res, user) {
+    console.log(user.username, user.password)
     if (await findUser(user.username, user.password, getUsers())) {
         const token = jwt.sign(user, privateKey, { expiresIn: '1h' });                
         res.status(200).json({ token, name });
