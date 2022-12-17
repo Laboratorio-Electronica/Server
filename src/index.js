@@ -2,11 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
+// const users = require('../data/users.json')
 const {getUsers} =  require('./mongoDB')
 
-const privateKey = process.env.PRIVATE_KEY
+const privateKey = 'KrlozMedina'
 const port = process.env.PORT || 1234;
-const app = express();
+
+
 var name;
 
 async function findUser(username, password, cb) {
@@ -33,6 +35,7 @@ async function generateToken (res, user) {
     }
 }
 
+const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 

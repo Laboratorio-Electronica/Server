@@ -1,10 +1,10 @@
 // Mongo DB
 const mongoose = require('mongoose');
 
-const userMongo = process.env.USER_DB;
-const passwordMongo = process.env.PASSWORD_DB;
-const nameDB = 'laboratorio';
-const URI = `mongodb+srv://${userMongo}:${passwordMongo}@data.6ep5zsp.mongodb.net/${nameDB}?retryWrites=true&w=majority`;
+const userMongo = 'KrlozMedina';
+const passwordMongo = 'PNj99mXR1ryVDBgz';
+const DBName = 'laboratorio';
+const URI = `mongodb+srv://${userMongo}:${passwordMongo}@data.6ep5zsp.mongodb.net/${DBName}?retryWrites=true&w=majority`;
 
 var users;
 
