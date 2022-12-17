@@ -2,19 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
-// const users = require('../data/users.json')
 const {getUsers} =  require('./mongoDB')
 
-const privateKey = 'KrlozMedina'
+const privateKey = process.env.PRIVATE_KEY;
 const port = process.env.PORT || 1234;
-
-
 var name;
 
 async function findUser(username, password, cb) {
     var status;
     const users = await cb;
-    // console.log(users)
     for (let i = 0; i < users.length; i++) {
         if (users[i].username === username && users[i].password === password) {
             status = true;
