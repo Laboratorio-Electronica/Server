@@ -13,7 +13,9 @@ mongoose.set('strictQuery', true);
 async function getUsers() {
     await mongoose.connect(URI)
         .then(() => console.log('Base de datos conectada'))
-        .catch(e => console.error('error', e))
+        .catch(e => {
+            console.log(userMongo, passwordMongo, DBName, URI)
+        })
 
     try {
         const arrayUsers = await user.find()
